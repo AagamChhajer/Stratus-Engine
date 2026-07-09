@@ -1,0 +1,18 @@
+[project]
+name = "stratus-engine"
+version = "0.1.0"
+description = "A pragmatic hybrid memory engine for LLM applications."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []
+
+[project.optional-dependencies]
+mongo = ["pymongo>=4.8"]
+vector = ["chromadb>=0.5.0"]
+openai = ["openai>=1.40.0", "tiktoken>=0.7.0"]
+demo = ["chromadb>=0.5.0", "openai>=1.40.0", "pymongo>=4.8", "pytest>=8.0", "tiktoken>=0.7.0"]
+dev = ["pytest>=8.0"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

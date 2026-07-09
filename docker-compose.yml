@@ -1,0 +1,22 @@
+services:
+  mongo:
+    image: mongo:7
+    container_name: stratus-engine-mongo
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - stratus_mongo_data:/data/db
+
+  chroma:
+    image: chromadb/chroma:latest
+    container_name: stratus-engine-chroma
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    volumes:
+      - stratus_chroma_data:/chroma/chroma
+
+volumes:
+  stratus_mongo_data:
+  stratus_chroma_data:
